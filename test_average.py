@@ -7,8 +7,12 @@ class TestAverage(unittest.TestCase):
 		self.assertEqual(average.average([2,4,5]), 3.66667)
 		self.assertEqual(average.average([-1,-2,-3]), -2)
 		self.assertEqual(average.average([-1,0,1]), 0)
-		self.assertEqual(average.average([0,0,1]), 0.33333)
+		self.assertEqual(average.average([0,0,1,1]), 0.5)
 		self.assertEqual(average.average([0.5,0.6,0.7]), 0.6)
+		self.assertEqual(average.average([1,2,3,4,5]), 3)
+		self.assertEqual(average.average([1]), 1)
+		self.assertEqual(average.average([1,3]), 2)
+
 
 	def test_empty_list(self):
 		self.assertEqual(average.average([]), "You entered an empty list.")
@@ -19,6 +23,8 @@ class TestAverage(unittest.TestCase):
 		self.assertEqual(average.average([2 , "Fail", 4]), "At least one of the list elements was invalid.")
 		self.assertEqual(average.average([2 , 3, "Fail"]), "At least one of the list elements was invalid.")
 		self.assertEqual(average.average([1 , 3, '4a']), "At least one of the list elements was invalid.")
+		self.assertEqual(average.average(["Fail"]), "At least one of the list elements was invalid.")
+		self.assertEqual(average.average(["Fail", 5]), "At least one of the list elements was invalid.")
 
 
 if __name__ == '__main__':
